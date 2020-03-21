@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProjectFrame</string>
+
+    <string name="app_base_url">https://www.cuour.org</string>
+
+    <string name="network_error">没有网络服务,请检查网络设置</string>
+
+</resources>

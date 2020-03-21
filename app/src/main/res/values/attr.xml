@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ESIconText">
+        <attr name="EduSoho_text" format="string" />
+        <attr name="EduSoho_text_color" format="color" />
+        <attr name="EduSoho_text_size" format="dimension" />
+        <attr name="EduSoho_icon" format="reference" />
+        <attr name="EduSoho_icon_width" format="dimension" />
+        <attr name="EduSoho_icon_height" format="dimension" />
+        <attr name="EduSoho_text_icon_padding" format="dimension" />
+        <attr name="EduSoho_icon_position" format="enum">
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+            <enum name="top" value="3" />
+            <enum name="bottom" value="4" />
+        </attr>
+    </declare-styleable>
+</resources>
