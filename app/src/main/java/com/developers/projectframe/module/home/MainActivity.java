@@ -1,8 +1,6 @@
 package com.developers.projectframe.module.home;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -13,25 +11,24 @@ import android.widget.TextView;
 import com.developers.projectframe.R;
 import com.developers.projectframe.base.view.NewBaseActivity;
 import com.developers.projectframe.module.home.adapter.MainViewPagerAdaper;
+import com.developers.projectframe.module.home.contract.MainContract;
 import com.developers.projectframe.module.home.fragment.HomeFragment;
 import com.developers.projectframe.module.home.fragment.LearnFragment;
 import com.developers.projectframe.module.home.fragment.MineFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.UIUtil;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.CommonPagerTitleView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends NewBaseActivity {
+public class MainActivity extends NewBaseActivity <MainPresenter> implements MainContract.IMainView {
 
     private ViewPager viewPager;
     private MagicIndicator magicIndicator;
@@ -47,6 +44,11 @@ public class MainActivity extends NewBaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected MainPresenter loadPresenter() {
+        return new MainPresenter(this);
     }
 
     @Override
@@ -144,4 +146,9 @@ public class MainActivity extends NewBaseActivity {
     }
 
 
+
+    @Override
+    public void requestData() {
+
+    }
 }
