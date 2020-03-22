@@ -112,7 +112,7 @@ public class ApiUtil {
                 .client(this.InterceptClient(true))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BaseApplication.baseApp.getString(R.string.app_base_url) + "/")
+                .baseUrl(BaseApplication.baseApp.getString(R.string.app_base_url) + "/") // 替换自己的host
                 .build();
         return mRetrofit.create(service);
     }

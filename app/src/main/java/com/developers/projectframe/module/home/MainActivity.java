@@ -11,10 +11,12 @@ import android.widget.TextView;
 import com.developers.projectframe.R;
 import com.developers.projectframe.base.view.NewBaseActivity;
 import com.developers.projectframe.module.home.adapter.MainViewPagerAdaper;
+import com.developers.projectframe.module.home.bean.AdvisoryBean;
 import com.developers.projectframe.module.home.contract.MainContract;
 import com.developers.projectframe.module.home.fragment.HomeFragment;
 import com.developers.projectframe.module.home.fragment.LearnFragment;
 import com.developers.projectframe.module.home.fragment.MineFragment;
+import com.developers.projectframe.utils.ToastUtil;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -46,6 +48,9 @@ public class MainActivity extends NewBaseActivity <MainPresenter> implements Mai
         return R.layout.activity_main;
     }
 
+    /**
+     * 绑定 Presenter
+     */
     @Override
     protected MainPresenter loadPresenter() {
         return new MainPresenter(this);
@@ -75,6 +80,9 @@ public class MainActivity extends NewBaseActivity <MainPresenter> implements Mai
 
         mainViewPagerAdaper = new MainViewPagerAdaper(getSupportFragmentManager(), fragmentList);
         viewPager.setAdapter(mainViewPagerAdaper);
+
+        //网络请求
+        mPresenter.getAdvisoryInfo();
 
     }
 
@@ -151,4 +159,11 @@ public class MainActivity extends NewBaseActivity <MainPresenter> implements Mai
     public void requestData() {
 
     }
+
+    @Override
+    public void setAdvisoryInfo(AdvisoryBean bean) {
+        if(bean == null) return;
+        ToastUtil.shortToast(mContext,"请求成功");
+    }
+
 }
