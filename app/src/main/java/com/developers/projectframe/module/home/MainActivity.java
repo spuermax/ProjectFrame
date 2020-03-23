@@ -12,6 +12,7 @@ import com.developers.projectframe.R;
 import com.developers.projectframe.base.view.NewBaseActivity;
 import com.developers.projectframe.module.home.adapter.MainViewPagerAdaper;
 import com.developers.projectframe.module.home.bean.AdvisoryBean;
+import com.developers.projectframe.module.home.bean.LiveCourseBean;
 import com.developers.projectframe.module.home.contract.MainContract;
 import com.developers.projectframe.module.home.fragment.HomeFragment;
 import com.developers.projectframe.module.home.fragment.LearnFragment;
@@ -28,7 +29,9 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.Common
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends NewBaseActivity <MainPresenter> implements MainContract.IMainView {
 
@@ -84,6 +87,19 @@ public class MainActivity extends NewBaseActivity <MainPresenter> implements Mai
         //网络请求
         mPresenter.getAdvisoryInfo();
 
+
+       apiReserve(null);
+
+    }
+
+
+    private void apiReserve(LiveCourseBean item) {
+        Map<String, String> params = new HashMap<>();
+        params.put("platform", "mobile");
+        params.put("targetId",  "");
+        params.put("targetType", "liveOpenClass");
+        params.put("userKey", "");
+        mPresenter.reserveLiveCourse(params);
     }
 
     private void initIndicator() {
@@ -164,6 +180,16 @@ public class MainActivity extends NewBaseActivity <MainPresenter> implements Mai
     public void setAdvisoryInfo(AdvisoryBean bean) {
         if(bean == null) return;
         ToastUtil.shortToast(mContext,"请求成功");
+    }
+
+    @Override
+    public void setReserveLiveCourse(LiveCourseBean liveCourse) {
+
+    }
+
+    @Override
+    public void setReserveError(String msg) {
+        ToastUtil.shortToast(mActivity,msg);
     }
 
 }

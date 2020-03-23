@@ -1,7 +1,11 @@
 package com.developers.projectframe.module.home.contract;
 
 import com.developers.projectframe.module.home.bean.AdvisoryBean;
+import com.developers.projectframe.module.home.bean.LiveCourseBean;
 import com.developers.projectframe.network.base.IView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author yinzh
@@ -14,11 +18,17 @@ public class MainContract {
         void requestData();
 
         void setAdvisoryInfo(AdvisoryBean bean);
+
+        void setReserveLiveCourse(LiveCourseBean liveCourse);
+
+        void setReserveError(String  msg);
     }
 
     public interface IMainPresenter {
         void requestData(boolean isLoadMore);
 
         void getAdvisoryInfo();
+
+        void reserveLiveCourse(Map<String ,String > map);
     }
 }

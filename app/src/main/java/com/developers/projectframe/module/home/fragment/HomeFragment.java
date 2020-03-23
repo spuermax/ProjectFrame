@@ -13,6 +13,7 @@ import com.developers.projectframe.base.view.NewBaseFragment;
 import com.developers.projectframe.module.home.MainPresenter;
 import com.developers.projectframe.module.home.adapter.HomeItemAdapter;
 import com.developers.projectframe.module.home.bean.AdvisoryBean;
+import com.developers.projectframe.module.home.bean.LiveCourseBean;
 import com.developers.projectframe.module.home.contract.MainContract;
 import com.developers.projectframe.utils.ToastUtil;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -93,5 +94,15 @@ public class HomeFragment extends NewBaseFragment<MainPresenter> implements Main
         refreshLayout.finishRefresh();
         refreshLayout.finishLoadMore();
         ToastUtil.shortToast(mActivity,"刷新页面成功");
+    }
+
+    @Override
+    public void setReserveLiveCourse(LiveCourseBean liveCourse) {
+
+    }
+
+    @Override
+    public void setReserveError(String msg) {
+
     }
 }
